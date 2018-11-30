@@ -1,0 +1,24 @@
+/* .popover {
+    z-index: unset !important;
+    max-width: unset !important;
+} */
+
+:host >>> .popover {
+    z-index: 1 !important;
+    max-width: unset !important;
+}
+
+button:focus {
+    outline: unset;
+}
+/* 
+.mat-button-round {
+    border-radius: 20px ;
+} */
+
+.btn-color {
+    background-color: #33b5e5!important;
+    color: #fff!important;
+    margin: 5px;
+    /* z-index: -1; */
+}

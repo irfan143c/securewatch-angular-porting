@@ -1,0 +1,16 @@
+<mat-form-field>
+  <input type="text" 
+    matInput 
+    ngxDaterangepickerMd 
+    [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"    
+    name="daterange" 
+    placeholder="DateRangePicker" 
+    autocomplete="off" 
+    [(ngModel)]="selectValue" >
+</mat-form-field>
+
+<!-- {{drp | json}} -->
+<!-- <br>
+Start Date :> {{ selected.value?.start }}
+<br>
+End Date :> {{ selected.value?.end }} -->

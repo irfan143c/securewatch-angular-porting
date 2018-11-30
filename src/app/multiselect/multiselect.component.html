@@ -1,0 +1,7 @@
+
+<mat-form-field >
+  <mat-select [placeholder]="placeholder" [(ngModel)]="selectValue" multiple (change)="onChange()" >
+    <mat-option *ngFor="let option of optionList" [value]="option">{{option}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<!-- Selected : {{selectValue}}  -->

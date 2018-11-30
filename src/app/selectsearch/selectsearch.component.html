@@ -1,0 +1,33 @@
+<mat-form-field>
+  <mat-select placeholder="Select" [(ngModel)]="selectValue" #singleSelect>
+    <ngx-mat-select-search [formControl]="dropdownFilter"></ngx-mat-select-search>
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- <app-grid [usersData] = "arr" [action]="true" ></app-grid> -->
+
+<!-- <p>
+    Selected : {{selectValue | json}}
+  </p> -->
+
+<!-- 
+  <h3>Multiple selection</h3>
+  <p>
+    <mat-form-field>
+      <mat-select [formControl]="bankMultiCtrl" placeholder="Banks" [multiple]="true" #multiSelect>
+        <ngx-mat-select-search [formControl]="bankMultiFilterCtrl"></ngx-mat-select-search>
+        <mat-option *ngFor="let bank of filteredBanksMulti | async" [value]="bank">
+          {{bank.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p>
+    Selected Banks:
+  </p>
+  <ul *ngFor="let bank of bankMultiCtrl?.value">
+    <li>{{bank.name}}</li>
+  </ul> -->

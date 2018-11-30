@@ -1,0 +1,46 @@
+/* .popover {
+    z-index: unset !important;
+    max-width: unset !important;
+} */
+
+:host >>> .popover {
+    z-index: 1 !important;
+    max-width: unset !important;
+}
+
+button:focus {
+    outline: unset;
+}
+/*
+.mat-button-round {
+    border-radius: 20px ;
+} */
+
+.btn-color {
+    background-color: #33b5e5!important;
+    color: #fff!important;
+    margin: 5px;
+    /* z-index: -1; */
+}
+
+
+.dropdownClause {
+    margin-right: 6px;
+    float: left;
+    border: 0;
+    padding-right: 0;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    box-shadow: unset;
+}
+
+
+.dropdown-menu {
+    /* width: 685px; */
+    
+    min-width: 30rem;
+    padding: 0.5rem 0.5rem;
+    
+}

@@ -1,0 +1,17 @@
+<!-- <h3>Multiple selection</h3> -->
+
+<mat-form-field>
+  <mat-select  [placeholder]="placeholder" [(ngModel)]="selectValue" [multiple]="true" #multiSelect (change)="onChange()">
+    <ngx-mat-select-search [formControl]="multiFilterCtrl"></ngx-mat-select-search>
+    <mat-option *ngFor="let option of filteredMulti | async" [value]="option">
+      {{option.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- <p>
+    Selected Banks:
+  </p>
+  <ul *ngFor="let bank of bankMultiCtrl?.value">
+    <li>{{bank.name}}</li>
+  </ul> -->

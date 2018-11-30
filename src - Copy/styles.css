@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-container {
+    padding: 30px;
+  }
+
+  /* .mat-select-content {
+    width: 220px !important;
+} */
+
+.md-drppicker.double {
+  width: 500px !important;
+}
+
+.mat-tooltip {
+  font-size: 14px;
+}
+
+/* css for remove button size in grid filter */
+.btn-size {
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.mat-icon-fs {
+  font-size: 15px !important;
+}

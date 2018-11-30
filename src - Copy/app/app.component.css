@@ -1,0 +1,12 @@
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%  !important;
+  }
+
+  a:hover {
+    color: white;
+    text-decoration: none;
+}

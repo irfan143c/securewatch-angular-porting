@@ -1,0 +1,39 @@
+<mat-toolbar color="primary" class="mat-elevation-z5 fixed-header">
+  <mat-toolbar-row>
+    <span>Test App</span>
+    <div>
+      <a routerLink="" mat-button></a>
+      <a routerLink="formcontrols" mat-button>Form Controls</a>
+      <a routerLink="gridcontrol" mat-button>Grid</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar><br><br><br><br><br>
+
+<!-- <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+
+  <app-selectsearch [dropdownOptions]="dropdownArray" formControlName="selectSearch" ></app-selectsearch>
+
+  <app-multiselect [options]="selectArray" formControlName="multiSelect"></app-multiselect>
+
+  <app-multiselectsearch [dropdownOptions]="multiSelectSearchArray" formControlName="multiSelectSearch"></app-multiselectsearch>
+
+  <mat-form-field>
+    <input matInput numberOnly placeholder="Only Numbers" formControlName="onlyNumber" autocomplete="off">
+  </mat-form-field>
+
+  <app-daterangepicker formControlName="dateRangePicker"></app-daterangepicker>
+
+  <app-firstlast [dropdownOptions]="fisrtLastArray" formControlName="names" ></app-firstlast>
+
+  <app-firstlastloginid [dropdownOptions]="fisrtLastLoginArray"  formControlName="nameswithlogin"></app-firstlastloginid>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="" >Submit</button>
+
+</form>
+
+<p>Form value: {{ reactiveForm.value | json }}</p> -->
+
+<!-- <app-grid [usersData]="gridData" [action]="true"></app-grid> -->
+
+
+<router-outlet></router-outlet>

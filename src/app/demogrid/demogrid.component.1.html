@@ -1,0 +1,129 @@
+<div class="mat-container">
+  <div class="example-header ml-2">
+
+    <app-multiselect [options]="totalColumns" [formControl]="showHideColumn" (onCheck)="isCheck()" [placeholder]="'Show/Hide Columns'"></app-multiselect>
+
+    <button mat-raised-button placement="right" [ngbPopover]="popContent" popoverTitle="Filter" class="btn-color">
+      <mat-icon>filter_list</mat-icon> <strong>Filter</strong>
+    </button>
+
+    <ng-template #popContent>
+      <form [formGroup]="filterForm">
+        <div formArrayName="aliases">
+
+          <div *ngFor="let address of aliases.controls; let i=index">
+            <!-- The repeated alias template -->
+            <div [formGroupName]="i">
+
+              <mat-form-field>
+                <mat-select formControlName="columnVal" placeholder="Columns" #columnInput>
+                  <mat-option *ngFor="let column of displayedColumns" [value]="column">
+                    {{ column }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf="columnInput.value == null">
+                <mat-select  formControlName="numClauseVal" placeholder="Clauses">
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf=" columnInput.value == 'id' || columnInput.value == 'progress'">
+                <mat-select  formControlName="numClauseVal" placeholder="Clauses">
+                  <mat-option *ngFor="let clause of numberClauses" [value]="clause">
+                    {{clause}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field *ngIf=" columnInput.value == 'name' || columnInput.value == 'color'">
+                <mat-select  formControlName="strClauseVal" placeholder="Clauses">
+                  <mat-option *ngFor="let clause of stringClauses" [value]="clause">
+                    {{clause}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <mat-form-field>
+                <input matInput formControlName="filterVal" placeholder="Filter" autocomplete="off">
+              </mat-form-field>
+
+              <!-- <mat-form-field >
+                  <input matInput [matDatepicker]="picker" formControlName="dateVal" placeholder="Choose a date"
+                     (click)="picker.open()" readonly>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> -->
+
+              <button mat-icon-button *ngIf="filterForm.controls.aliases.length > 1" (click)="removeFilter(i)">
+                <mat-icon class="mat-icon-fs">clear</mat-icon>
+              </button>
+
+            </div>
+          </div>
+
+          <button mat-mini-fab class="btn-color" (click)="addFilter()" matTooltip="Add Filter">
+            <mat-icon>add</mat-icon>
+          </button>
+
+          <!-- <button mat-mini-fab class="btn-color float-right" (click)="clearFilter()" matTooltip="Reset Filter">
+            <mat-icon>refresh</mat-icon>
+          </button> -->
+
+          <button mat-raised-button class="btn-color float-right" (click)="applyFilter()">
+            Apply
+          </button>
+
+        </div>
+      </form>
+
+      <!-- <p>
+        Form Value: {{ filterForm.value | json }}
+      </p> -->
+
+    </ng-template>
+
+
+    <!-- <button mat-raised-button (click)="exportPdf()" class="float-right btn-color"><mat-icon>picture_as_pdf</mat-icon> PDF</button>
+    <button mat-raised-button (click)="exportCsv()" class="float-right btn-color"><mat-icon>file_copy</mat-icon> Excel</button> -->
+
+    <button mat-mini-fab [matMenuTriggerFor]="menu" class="float-right btn-color">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="exportPdf()">
+        <mat-icon>picture_as_pdf</mat-icon>
+        <span>Export to PDF</span>
+      </button>
+      <button mat-menu-item (click)="exportCsv()">
+        <mat-icon>file_copy</mat-icon>
+        <span>Export to Excel</span>
+      </button>
+    </mat-menu>
+
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table [dataSource]="dataSource" matSort #table>
+      <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight:bolder !important;color:black"> {{disCol
+          | uppercase}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row[disCol] }}
+          <button *ngIf="disCol == 'action'" mat-icon-button style="color: #33b5e5" (click)="showData(row.id)">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button *ngIf="disCol == 'action'" mat-icon-button style="color: #33b5e5">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[ 10, 25, 100]"></mat-paginator>
+
+  </div>
+</div>

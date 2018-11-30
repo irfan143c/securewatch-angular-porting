@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-select placeholder="Names" [(ngModel)]="selectValue" #singleSelect >
+    <ngx-mat-select-search [formControl]="dropdownFilter"></ngx-mat-select-search>
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option.lastName}} {{option.firstName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

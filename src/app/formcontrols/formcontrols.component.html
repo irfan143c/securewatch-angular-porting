@@ -1,0 +1,27 @@
+<div class="mat-container">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+
+    <app-selectsearch [dropdownOptions]="dropdownArray" formControlName="selectSearch"></app-selectsearch>
+
+    <app-multiselect [options]="selectArray" matTooltip="{{multiSelectTooltip}}" formControlName="multiSelect" [placeholder]="'Multiselect'" (onCheck)="multiTooltip()"></app-multiselect>
+
+    <app-multiselectsearch [dropdownOptions]="multiSelectSearchArray" matTooltip="{{multiSelectSearchTooltip}}" formControlName="multiSelectSearch" [placeholder]="'Multiselect Search'" (onCheck)="multiSearchTooltip()"></app-multiselectsearch>
+
+    <mat-form-field>
+      <input matInput numberOnly placeholder="Only Numbers" formControlName="onlyNumber" autocomplete="off">
+    </mat-form-field>
+
+    <app-daterangepicker formControlName="dateRangePicker"></app-daterangepicker>
+
+    <app-firstlast [dropdownOptions]="fisrtLastArray" formControlName="names"></app-firstlast>
+
+    <app-firstlastloginid [dropdownOptions]="fisrtLastLoginArray" formControlName="nameswithlogin"></app-firstlastloginid>
+
+    <!-- <button mat-raised-button color="primary" type="submit" [disabled]="">Submit</button> -->
+
+  </form>
+
+  <p>Form value: {{ reactiveForm.value | json }}</p>
+</div>
+
+<!-- <app-tablegrid [tableData]="tableData"></app-tablegrid> -->
